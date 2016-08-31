@@ -25,6 +25,16 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
+
+    if (environment === 'development') {
+      ENV.hoodie = {
+        client: {},
+        server: { // https://github.com/hoodiehq/hoodie#hapi-plugin
+          port: 4201
+        }
+      }
+    }
+
   }
 
   if (environment === 'test') {
