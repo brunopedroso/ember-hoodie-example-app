@@ -1,0 +1,11 @@
+
+<h1>messages in conversation {{model.name}}</h1>
+{{#each model.messages as |doc|}}
+  <li>
+    {{doc.text}}
+    <small style='color:#ddd'>{{doc.id}}</small>
+  </li>
+{{/each}}
+
+{{input value=message enter='postNewMessage' }}
+<button {{action 'postNewMessage'}}>Post</button>

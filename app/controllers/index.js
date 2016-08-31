@@ -28,10 +28,9 @@ export default Ember.Controller.extend({
       this.get('hoodieAccount.signOut')();
     },
 
-
-    postNewMessage() {
-      this.store.createRecord('message', {text: this.get('newMessage')}).save();
-      this.set('newMessage', '');
+    createNewConversation() {
+      this.store.createRecord('conversation', {name: this.get('name')}).save();
+      this.set('name', '');
     },
 
   },

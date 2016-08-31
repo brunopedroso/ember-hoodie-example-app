@@ -7,6 +7,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+
+  this.route('conversation', { path: 'conversations/:id' });
+
 });
 
 export default Router;

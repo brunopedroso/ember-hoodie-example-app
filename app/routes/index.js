@@ -3,7 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 
   model() {
-    return this.get('store').findAll('message');
+    return this.get('store').findAll('conversation');
   },
 
 

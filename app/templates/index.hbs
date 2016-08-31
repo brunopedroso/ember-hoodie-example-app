@@ -10,13 +10,12 @@
 {{/if}}
 <br/><br/>
 
-<h1>your messages</h1>
+<h1>your conversations</h1>
 {{#each model as |doc|}}
   <li>
-    {{doc.text}}
-    <small style='color:#bbb'>{{doc.id}}</small>
+    {{link-to doc.name 'conversation' doc.id }}
   </li>
 {{/each}}
 
-{{input value=newMessage enter='postNewMessage' }}
-<button {{action 'postNewMessage'}}>Post</button>
+{{input value=name enter='createNewConversation' }}
+<button {{action 'createNewConversation'}}>Create</button>
