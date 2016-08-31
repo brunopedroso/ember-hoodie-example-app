@@ -1,0 +1,22 @@
+
+{{#if hoodieAccount.isSignedIn}}
+  U're <strong>{{hoodieAccount.username}}</strong>...
+  <button {{action 'signOut'}}>sign out</button>
+{{else}}
+  {{input value=username}}<br/>
+  {{input value=password type='password' enter='signIn'}}<br/>
+  <button {{action 'signIn'}}>sign in</button>
+  <button {{action 'signUp'}}>sign up</button>
+{{/if}}
+<br/><br/>
+
+<h1>your messages</h1>
+{{#each model as |doc|}}
+  <li>
+    {{doc.text}}
+    <small style='color:#bbb'>{{doc.id}}</small>
+  </li>
+{{/each}}
+
+{{input value=newMessage enter='postNewMessage' }}
+<button {{action 'postNewMessage'}}>Post</button>
