@@ -41,6 +41,6 @@
     "loader.js": "^4.0.1"
   },
   "dependencies": {
-    "ember-hoodie": "^2.1.1"
+    "ember-hoodie": "^2.2.1"
   }
 }
