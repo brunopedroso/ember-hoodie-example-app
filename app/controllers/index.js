@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
   hoodieAccount: Ember.inject.service('hoodie-account'),
+
   credentials: Ember.computed('username','password', function(){
     return {
       username: this.get('username'),
@@ -19,8 +20,16 @@ export default Ember.Controller.extend({
       });
     },
     signIn() {
-      this.get('hoodieAccount.signIn')(this.get('credentials')).then(()=>{
-        this.send("sessionChanged");
+      this.get('hoodieAccount.signIn')(this.get('credentials'))
+      // .then(()=>{
+      //   this.send("sessionChanged");
+      .then((session)=>{
+        Ember.Logger.debug(session);
+        return this.store.findAll('conversation');
+      }).then((all)=>{
+        Ember.Logger.debug(all);
+      }).catch((error)=>{
+        Ember.Logger.error(error);
       });
 
     },
